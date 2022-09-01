@@ -167,10 +167,10 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
-            "title": "We creative",
+            "title": "Our team are creative",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Let`s shopping",
+            "link": "shopify:\/\/collections\/all"
           }
         },
         "column2": {
