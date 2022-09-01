@@ -142,8 +142,9 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo_width": 90,
-          "logo_position": "middle-center",
+          "logo": "shopify:\/\/shop_images\/logo.png",
+          "logo_width": 100,
+          "logo_position": "top-center",
           "menu": "main-menu",
           "menu_type_desktop": "dropdown",
           "show_line_separator": true,
