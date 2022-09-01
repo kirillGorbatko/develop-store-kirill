@@ -177,10 +177,10 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/a-bridge-sitting-in-thick-pink-and-purple-fog.jpg",
-            "title": "We`re building knowledge bridges",
+            "title": "We`re keep calm",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Let`s shopping",
+            "link": "shopify:\/\/collections\/all"
           }
         },
         "column3": {
@@ -189,8 +189,8 @@
             "image": "shopify:\/\/shop_images\/people-looking-at-light-beams-from-the-walls.jpg",
             "title": "Our clients like us",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Let`s shopping",
+            "link": "shopify:\/\/collections\/all"
           }
         }
       },
