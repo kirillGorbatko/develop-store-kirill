@@ -2211,6 +2211,19 @@ input[type='checkbox'] {
   letter-spacing: 0.1rem;
 }
 
+.announcement-bar__action_message {
+	text-align: center;
+}
+
+.announcement-bar__action_message a {
+	font-weight: 700;
+	color: inherit;
+}
+
+.announcement-bar__action_message a:hover {
+	color: yellow;
+}
+
 /* section-header */
 #shopify-section-header {
   z-index: 3;

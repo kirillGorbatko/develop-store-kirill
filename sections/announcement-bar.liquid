@@ -13,6 +13,13 @@
                     {% render 'icon-arrow' %}
                   {%- endif -%}
                 </p>
+								<p class="announcement-bar__action_message">
+									{% if cart.item_count > 0 %}
+										You have {{cart.item_count}} items in your cart, <a href="{{routes.cart_url}}">buy it now</a>. Quantity is limited!
+									{% else %}
+										You dont have any items in your cart :( <br/> <a href="{{routes.all_products_collection_url}}">Look at our new collection</a>
+									{% endif %}
+								</p>
               </div>
           {%- if block.settings.link != blank -%}
             </a>
