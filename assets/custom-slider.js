@@ -7,11 +7,15 @@ window.addEventListener('load', () => {
 	const currentSlide = document.querySelector('.custom-slider_fractions__item--current');
 	const totalSlides = document.querySelector('.custom-slider_fractions__item--total');
 
-	renderCurrentSlider = () => {
-		let additionNumber = window.innerWidth < 750 ? 1 : 0;
+	renderCurrentSlider = (swiper) => {
+		const slideWidth = slider.querySelector('.swiper-slide').clientWidth;
+		const additionalNumber = Math.round(slider.clientWidth / slideWidth);
 
-		visibleSlides = slider.querySelectorAll('.swiper-slide-visible');
-		currentSlide.innerHTML = customSlider.realIndex + visibleSlides.length - additionNumber;
+		let currentSlideNumber = swiper.activeIndex;
+
+		if (currentSlideNumber > swiper.slides.length) currentSlideNumber = currentSlideNumber - 1;
+
+		currentSlide.innerHTML = currentSlideNumber + additionalNumber;
 	};
 
 	sliderInit = () => {
@@ -19,7 +23,6 @@ window.addEventListener('load', () => {
 			observer: true,
 			speed: 800,
 			slidesPerView: 'auto',
-			watchSlidesProgress: true,
 			navigation: {
 				nextEl: '.custom-slider__navigation .custom-slider__arrow--next',
 				prevEl: '.custom-slider__navigation .custom-slider__arrow--prev'
@@ -37,10 +40,10 @@ window.addEventListener('load', () => {
 
 
 		totalSlides.innerHTML = customSlider.slides.length;
-		renderCurrentSlider();
+		renderCurrentSlider(customSlider);
 
-		customSlider.on('slideChange', () => renderCurrentSlider()),
-			customSlider.on('resize', () => renderCurrentSlider())
+		customSlider.on('slideChange', () => renderCurrentSlider(customSlider)),
+			customSlider.on('resize', () => renderCurrentSlider(customSlider))
 	};
 
 	toggleSlider = () => {
