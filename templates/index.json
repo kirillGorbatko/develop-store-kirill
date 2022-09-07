@@ -1,5 +1,30 @@
 {
   "sections": {
+    "1662548677e1263a61": {
+      "type": "custom-slider",
+      "settings": {
+        "content_align": "middle",
+        "title": "Custom slider",
+        "hide_title": false,
+        "descr": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur voluptate at rem doloribus! Qui, odio aliquam! Aspernatur ipsam fuga quis odio numquam ab provident, placeat laborum, rerum asperiores impedit!",
+        "hide_descr": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "space_between": 20,
+        "enable_slider_desk": true,
+        "products_desk": 3,
+        "enable_slider_mob": true,
+        "products_mob": 2,
+        "enable_slider_fractions_desk": true,
+        "enable_slider_fractions_mob": true,
+        "enable_slider_dotts_desk": true,
+        "enable_slider_dotts_mob": true,
+        "enable_slider_arrows_desk": false,
+        "enable_slider_arrows_mob": false,
+        "enable_slider_scrollbar_desk": true,
+        "enable_slider_scrollbar_mob": false
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -218,6 +243,7 @@
     }
   },
   "order": [
+    "1662548677e1263a61",
     "image_banner",
     "rich_text",
     "featured_collection",
