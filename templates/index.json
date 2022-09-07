@@ -21,7 +21,7 @@
         "enable_slider_dotts_mob": true,
         "enable_slider_arrows_desk": false,
         "enable_slider_arrows_mob": false,
-        "enable_slider_scrollbar_desk": true,
+        "enable_slider_scrollbar_desk": false,
         "enable_slider_scrollbar_mob": false
       }
     },
