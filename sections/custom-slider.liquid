@@ -1,10 +1,349 @@
-{% stylesheet %}
-{% endstylesheet %}
+{{ 'custom-slider' | append: '.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'custom-slider' | append: '.js' | asset_url }}" defer="defer"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer="defer" ></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+
+{%- style -%}
+
+	@media screen and (max-width: 749px) {
+		.custom-slider {
+			padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+			padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.75);
+		}
+
+		.custom-slider__slider {
+			{% if section.settings.enable_slider_mob == false %} 
+				margin-right: calc( -{{ section.settings.space_between }}px * 0.5);
+				margin-bottom: -{{ section.settings.space_between }}px;
+			{% endif %}
+		}
+		.custom-slider__slider .swiper-wrapper {
+			{% if section.settings.enable_slider_mob == false %} 
+				flex-wrap: wrap;
+			{% endif %}
+		}
+
+		.custom-slider_slide{
+			padding-right: calc({{ section.settings.space_between }}px * 0.5);
+			width: calc( 100% / {{ section.settings.products_mob }} - {{ section.settings.space_between }}px);
+
+			{% if section.settings.enable_slider_mob == false %} 
+				padding-bottom: {{ section.settings.space_between }}px;
+			{% endif %}
+		}
+
+		.custom-slider__arrows{
+			{% if section.settings.enable_slider_arrows_mob == false %}
+				display: none;
+			{% endif %}
+		}
+
+		.custom-slider__dotts{
+			{% if section.settings.enable_slider_dotts_mob == false %}
+				display: none;
+			{% endif %}
+		}
+
+		.custom-slider__scrollbar{
+			{% if section.settings.enable_slider_scrollbar_mob == false %}
+				display: none;
+			{% endif %}
+		}
+
+		.custom-slider_fractions{
+			{% if section.settings.enable_slider_fractions_mob == false %}
+				display: none;
+			{% endif %}
+		}
+	}
+
+	@media screen and (min-width: 750px) {
+		.custom-slider {
+			padding-top: {{ section.settings.padding_top }}px;
+			padding-bottom: {{ section.settings.padding_bottom }}px;
+		}
+
+		.custom-slider__slider {
+			{% if section.settings.enable_slider_desk == false %} 
+				margin-right: -{{ section.settings.space_between }}px;
+				margin-bottom: -{{ section.settings.space_between }}px;
+			{% endif %}
+		}
+
+		.custom-slider__slider .swiper-wrapper {
+			{% if section.settings.enable_slider_desk == false %} 
+				margin-right: -{{ section.settings.space_between }}px;
+				margin-bottom: -{{ section.settings.space_between }}px;
+				flex-wrap: wrap;
+			{% endif %}
+		}
+
+		.custom-slider_slide{
+			padding-right: {{ section.settings.space_between }}px;
+			width: calc( 100% / {{ section.settings.products_desk }} - {{ section.settings.space_between }}px);
+
+			{% if section.settings.enable_slider_desk == false %} 
+				padding-bottom: {{ section.settings.space_between }}px;
+			{% endif %}
+		}
+
+		.custom-slider__arrows{
+			{% if section.settings.enable_slider_arrows_desk == false %}
+				display: none;
+			{% endif %}
+		}
+
+		.custom-slider__dotts{
+			{% if section.settings.enable_slider_dotts_desk == false %}
+				display: none;
+			{% endif %}
+		}
+
+		.custom-slider__scrollbar{
+			{% if section.settings.enable_slider_scrollbar_desk == false %}
+				display: none;
+			{% endif %}
+		}
+
+		.custom-slider_fractions{
+			{% if section.settings.enable_slider_fractions_desk == false %}
+				display: none;
+			{% endif %}
+		}
+	}
+
+	.custom-slider__title {
+		{% if section.settings.hide_title %}
+			display: none;
+		{% endif %}
+	}
+
+	.custom-slider__descr {
+		{% if section.settings.hide_descr %}
+			display: none;
+		{% endif %}
+	}
+
+	.custom-slider__head {
+		{% if section.settings.content_align == 'middle' %}
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		{% elsif section.settings.content_align == 'right' %}
+			margin-left: auto;
+			text-align: right;
+		{% endif %}
+	}
+{%- endstyle -%}
+
+<section class="custom-slider">
+	<div class="custom-slider__head">
+		<h3 class="custom-slider__title">{{ section.settings.title }}</h3>
+		<div class="custom-slider__descr">{{ section.settings.descr }}</div>
+	</div>
+	{%- liquid
+		assign swiperClasses = "swiper custom-slider__slider customSlider "
+		if section.settings.enable_slider_desk 
+			assign swiperClasses = swiperClasses | append: 'custom-slider__slider--enable_desk '
+		endif
+		if section.settings.enable_slider_mob 
+		assign swiperClasses = swiperClasses | append: 'custom-slider__slider--enable_mob '
+		endif
+	-%}
+	<div class=" {{ swiperClasses }}">
+		<div class="swiper-wrapper">
+			{% for product in collections.frontpage.products %}
+				<div class="swiper-slide custom-slider_slide">
+					<a href="{{ product.url }}" class="custom-slider_slide__link">
+						<div class="custom-slider_slide__img">
+								<img 
+									src="{{ product.featured_image | image_url }}"
+									loading="lazy"
+									alt="Product {{ product.title }}"
+									width=""
+									height=""
+								>
+						</div>
+						<h3 class="custom-slider_slide__title card__heading h5">{{ product.title }}</h3>
+						<div class="custom-slider_slide__descr caption-with-letter-spacing light">{{ product.description }}</div>
+						<div class="custom-slider_slide__price">{{ product.price | money | strip_html }}</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="custom-slider__navigation">
+		<div class="custom-slider_fractions">
+			<div class="custom-slider_fractions__item custom-slider_fractions__item--current"></div>
+			<div class="custom-slider_fractions__item custom-slider_fractions__item--total"></div>
+		</div>
+		<div class="custom-slider__dotts"></div>
+		<div class="custom-slider__arrows">
+			<button type="button" class="custom-slider__arrow custom-slider__arrow--prev">></button>
+			<button type="button" class="custom-slider__arrow custom-slider__arrow--next">></button>
+		</div>
+		<div class="custom-slider__scrollbar"></div>
+	</div>
+</section>
 
 {% schema %}
-  {
-    "name": "Custom slider",
-    "settings": []
-  }
+{
+	"name": "Custom slider",
+	"settings": [
+		{
+			"type": "select",
+			"label": "Contant alignment",
+			"id": "content_align",
+			"options": [
+				{
+					"value": "right",
+					"label": "Right"
+				},
+				{
+					"value": "middle",
+					"label": "Middle"
+				},
+				{
+					"value": "left",
+					"label": "Left"
+				}
+			],
+			"default": "middle"
+		},
+		{
+			"type": "text",
+			"label": "Title",
+			"id": "title",
+			"default": "Custom slider"
+		},
+		{
+			"type": "checkbox",
+			"label": "Hide title",
+			"id": "hide_title",
+			"default": false
+		},
+		{
+			"type": "text",
+			"label": "Description",
+			"id": "descr",
+			"default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur voluptate at rem doloribus! Qui, odio aliquam! Aspernatur ipsam fuga quis odio numquam ab provident, placeat laborum, rerum asperiores impedit!"
+		},
+		{
+			"type": "checkbox",
+			"label": "Hide description",
+			"id": "hide_descr",
+			"default": false
+		},
+		{
+			"type": "range",
+			"id": "padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "Padding top",
+			"default": 40
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "Padding bottom",
+			"default": 40
+		},
+		{
+			"type": "range",
+			"id": "space_between",
+			"min": 0,
+			"max": 40,
+			"step": 5,
+			"unit": "px",
+			"label": "Products space between",
+			"default": 20
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider on desktop",
+			"id": "enable_slider_desk",
+			"default": true
+		},
+		{
+			"type": "range",
+			"id": "products_desk",
+			"min": 1,
+			"max": 4,
+			"step": 1,
+			"label": "View products (desktop)",
+			"default": 3
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider on mobile",
+			"id": "enable_slider_mob",
+			"default": true
+		},
+		{
+			"type": "range",
+			"id": "products_mob",
+			"min": 1,
+			"max": 3,
+			"step": 1,
+			"label": "View products (mobile)",
+			"default": 2
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider fractions on desktop",
+			"id": "enable_slider_fractions_desk",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider fractions on mobile",
+			"id": "enable_slider_fractions_mob",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider dotts on desktop",
+			"id": "enable_slider_dotts_desk",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider dotts on mobile",
+			"id": "enable_slider_dotts_mob",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider arrows on desktop",
+			"id": "enable_slider_arrows_desk",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider arrows on mobile",
+			"id": "enable_slider_arrows_mob",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider scrollbar on desktop",
+			"id": "enable_slider_scrollbar_desk",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"label": "Enable slider scrollbar on mobile",
+			"id": "enable_slider_scrollbar_mob",
+			"default": false
+		}
+	]
+}
 {% endschema %}
