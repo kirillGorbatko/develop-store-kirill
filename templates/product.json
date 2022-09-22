@@ -1,5 +1,61 @@
 {
   "sections": {
+    "16638473246d2cae72": {
+      "type": "custom-tabs",
+      "blocks": {
+        "b9b40341-2c80-445a-ab3f-c38b41ae11de": {
+          "type": "text",
+          "settings": {
+            "tab_title": "Information",
+            "tab_content": "<p>You can be convinced of the quality by looking at the reviews of <\/p><p><strong>our happy customers  <\/strong><em><strong>=)<\/strong><\/em><\/p>",
+            "tab_image": "shopify:\/\/shop_images\/wall-416060_1280.jpg",
+            "img_fit": "cover",
+            "hide_img": false,
+            "show_img_text": true,
+            "img_content": "<p><strong>Our products are best!<\/strong><\/p>"
+          }
+        },
+        "f211a607-bbd1-4474-9034-75d428c62538": {
+          "type": "text",
+          "settings": {
+            "tab_title": "Pricing",
+            "tab_content": "<p>Base tee - 10$<\/p><p>Shirts - 20$<\/p><p>Hoodie - 50$<\/p>",
+            "tab_image": "shopify:\/\/shop_images\/close-up-of-purple-and-blue-laces.jpg",
+            "img_fit": "cover",
+            "hide_img": false,
+            "show_img_text": false,
+            "img_content": "<p>Text on your image.<\/p>"
+          }
+        },
+        "e8555dfa-893d-4949-ba74-b8ee359ac2ec": {
+          "type": "text",
+          "settings": {
+            "tab_title": "Contacts",
+            "tab_content": "<p>Telegram      - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Whatsapp    - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Some social - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p>",
+            "tab_image": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
+            "img_fit": "cover",
+            "hide_img": false,
+            "show_img_text": false,
+            "img_content": "<p>Text on your image.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "b9b40341-2c80-445a-ab3f-c38b41ae11de",
+        "f211a607-bbd1-4474-9034-75d428c62538",
+        "e8555dfa-893d-4949-ba74-b8ee359ac2ec"
+      ],
+      "settings": {
+        "content_align": "middle",
+        "title": "Custom tabs",
+        "hide_title": false,
+        "descr": "Custom tabs is best practice for your awesome shop lorem ipsum dolor sit amet!",
+        "hide_descr": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "img_height": 40
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -109,6 +165,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
+        "media_position": "left",
         "gallery_layout": "stacked",
         "media_size": "large",
         "mobile_thumbnails": "hide",
@@ -201,6 +258,7 @@
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "background-1",
         "image_ratio": "square",
@@ -214,6 +272,7 @@
     }
   },
   "order": [
+    "16638473246d2cae72",
     "main",
     "image-with-text",
     "multicolumn",
