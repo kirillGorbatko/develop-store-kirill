@@ -30,12 +30,13 @@
         "9f707a88-ccee-4a4b-8f5d-4e48d9e7570a": {
           "type": "text",
           "settings": {
-            "tab_title": "Tab Title",
-            "tab_content": "<p>Tab description Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, excepturi.<\/p>",
+            "tab_title": "Contacts",
+            "tab_content": "",
+            "tab_image": "shopify:\/\/shop_images\/people-looking-at-light-beams-from-the-walls.jpg",
             "img_fit": "cover",
             "hide_img": false,
-            "show_img_text": false,
-            "img_content": "<p>Text on your image.<\/p>"
+            "show_img_text": true,
+            "img_content": "<p>Telegram - <a href=\"\/collections\/all\" target=\"_blank\" title=\"All products\">link<\/a><\/p><p>Whtsapp - <a href=\"\/collections\/all\" target=\"_blank\" title=\"All products\">link<\/a><\/p><p>LinkedIn - <a href=\"\/collections\/all\" target=\"_blank\" title=\"All products\">link<\/a><\/p><p>Some social - <a href=\"\/collections\/all\" target=\"_blank\" title=\"All products\">link<\/a><\/p>"
           }
         }
       },
