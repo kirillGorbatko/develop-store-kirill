@@ -83,6 +83,7 @@
 @media screen and (max-width: 389px) {
 	.custom-tabs__btn {
 		position: relative;
+		color: #000;
 		
 		background-color: transparent;
 	}
