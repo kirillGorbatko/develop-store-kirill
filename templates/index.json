@@ -1,59 +1,5 @@
 {
   "sections": {
-    "1663846802dfb0ed07": {
-      "type": "custom-tabs",
-      "blocks": {
-        "d614b212-f92b-4312-8156-7ee0b11a4c9a": {
-          "type": "text",
-          "settings": {
-            "tab_title": "Information",
-            "tab_content": "<p>You can be convinced of the quality by looking at the reviews of <\/p><p><strong>our happy customers  <\/strong><em><strong>=)<\/strong><\/em><\/p>",
-            "tab_image": "shopify:\/\/shop_images\/waves-3473335_1920.jpg",
-            "img_fit": "cover",
-            "hide_img": false,
-            "show_img_text": true,
-            "img_content": "<p>Our products are best!<\/p>"
-          }
-        },
-        "bbca0132-14d8-4f81-b58c-552ff807aaac": {
-          "type": "text",
-          "settings": {
-            "tab_title": "Prices",
-            "tab_content": "<p>Base tee - 10$<\/p><p>Shirts - 20$<\/p><p>Hoodie - 50$<\/p>",
-            "img_fit": "cover",
-            "hide_img": true,
-            "show_img_text": false,
-            "img_content": "<p>Text on your image.<\/p>"
-          }
-        },
-        "13323cf2-014b-49ff-9f19-f8fbd1e6329f": {
-          "type": "text",
-          "settings": {
-            "tab_title": "Contacts",
-            "tab_content": "<p>Telegram      - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Whatsapp    - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Some social - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p>",
-            "img_fit": "cover",
-            "hide_img": false,
-            "show_img_text": false,
-            "img_content": "<p>Text on your image.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "d614b212-f92b-4312-8156-7ee0b11a4c9a",
-        "bbca0132-14d8-4f81-b58c-552ff807aaac",
-        "13323cf2-014b-49ff-9f19-f8fbd1e6329f"
-      ],
-      "settings": {
-        "content_align": "middle",
-        "title": "Custom tabs",
-        "hide_title": false,
-        "descr": "Custom tabs is best practice for your awesome shop lorem ipsum dolor sit amet!",
-        "hide_descr": false,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "img_height": 50
-      }
-    },
     "1662548677e1263a61": {
       "type": "custom-slider",
       "settings": {
@@ -297,7 +243,6 @@
     }
   },
   "order": [
-    "1663846802dfb0ed07",
     "1662548677e1263a61",
     "image_banner",
     "rich_text",
