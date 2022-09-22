@@ -19,24 +19,24 @@
           "type": "text",
           "settings": {
             "tab_title": "Pricing",
-            "tab_content": "<p>Base tee - 10$<\/p><p>Shirts - 20$<\/p><p>Hoodie - 50$<\/p>",
+            "tab_content": "",
             "tab_image": "shopify:\/\/shop_images\/close-up-of-purple-and-blue-laces.jpg",
             "img_fit": "cover",
             "hide_img": false,
-            "show_img_text": false,
-            "img_content": "<p>Text on your image.<\/p>"
+            "show_img_text": true,
+            "img_content": "<p>Base tee - 10$<\/p><p>Shirts - 20$<\/p><p>Hoodie - 50$<\/p>"
           }
         },
         "e8555dfa-893d-4949-ba74-b8ee359ac2ec": {
           "type": "text",
           "settings": {
             "tab_title": "Contacts",
-            "tab_content": "<p>Telegram      - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Whatsapp    - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Some social - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p>",
+            "tab_content": "",
             "tab_image": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
             "img_fit": "cover",
             "hide_img": false,
-            "show_img_text": false,
-            "img_content": "<p>Text on your image.<\/p>"
+            "show_img_text": true,
+            "img_content": "<p>Telegram      - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Whatsapp    - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p><p>Some social - <a href=\"https:\/\/www.google.com\/\" target=\"_blank\" title=\"https:\/\/www.google.com\/\">link<\/a><\/p>"
           }
         }
       },
