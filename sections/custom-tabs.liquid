@@ -77,16 +77,18 @@
 					{% for block in section.blocks %}
 						<div data-tab="{{ forloop.index }}" class="custom-tabs__block {% if forloop.index == 1 %}active_tab{% endif %}">
 							{% if block.settings.tab_image and block.settings.hide_img == false %}
-								<div 
-									class="custom-tabs__image custom-tabs__image--{{ block.settings.img_fit }}"
-								>
-									<img 
-										width=""
-										height=""
-										loading="lazy" 
-										src="{{ block.settings.tab_image | image_url }}" 
-										alt="{{ block.settings.tab_image.alt | escape }}"
+								<div class="custom-tabs__wrap">
+									<div 
+										class="custom-tabs__image custom-tabs__image--{{ block.settings.img_fit }}"
 									>
+										<img 
+											width=""
+											height=""
+											loading="lazy" 
+											src="{{ block.settings.tab_image | image_url }}" 
+											alt="{{ block.settings.tab_image.alt | escape }}"
+										>
+									</div>
 									{% if block.settings.show_img_text %}
 										<div class="custom-tabs__image_text">
 											 <span>{{ block.settings.img_content }}</span>
