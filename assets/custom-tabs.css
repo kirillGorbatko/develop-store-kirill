@@ -110,6 +110,7 @@
 
 .custom-tabs__blocks {
 	position: relative;
+
 	overflow: hidden;
 }
 
@@ -134,6 +135,9 @@
 
 .custom-tabs__wrap {
 	position: relative;
+
+	border-radius: 0.4rem;
+	overflow: hidden;
 }
 
 .custom-tabs__image {
@@ -141,8 +145,6 @@
 
 	display: block;
 	width: 100%;
-
-	overflow: hidden;
 }
 
 .custom-tabs__image img {
