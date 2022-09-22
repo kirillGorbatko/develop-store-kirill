@@ -1,0 +1,163 @@
+.custom-tabs {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.custom-tabs__container {
+	max-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.custom-tabs__title {
+	margin-top: 0;
+}
+
+.custom-tabs__descr:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.custom-tabs__body {
+
+}
+
+.custom-tabs__head {
+	overflow: hidden;
+}
+
+.custom-tabs__head:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.custom-tabs__list {
+	display: flex;
+	flex-wrap: wrap;
+
+	list-style: none;
+	padding-left: 0;
+
+	margin: 0 -2rem -2rem 0;
+}
+
+.custom-tabs__item {
+	padding: 0 2rem 2rem 0;
+}
+
+@media screen and (min-width: 390px) {
+	.custom-tabs__btn {
+		background-color: #fff;
+		height: 4.9rem;
+		padding: 0 2rem;
+		cursor: pointer;
+
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	.custom-tabs__btn:hover,
+	.custom-tabs__btn.active_tab {
+		background-color: #000;
+		color: #fff;
+	}
+}
+
+@media screen and (max-width: 389px) {
+	.custom-tabs__btn {
+		position: relative;
+		
+		cursor: pointer;
+		border: none;
+		background-color: transparent;
+	}
+
+	.custom-tabs__btn::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 100%;
+		height: 1px;
+
+		background-color: #000;
+
+		transform: scale(0);
+		transition: transform 0.3s ease 0s;
+	}
+
+	.custom-tabs__btn.active_tab::before {
+		transform: scale(1);
+	}
+}
+
+.custom-tabs__blocks {
+
+}
+
+.custom-tabs__block  {
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s ease 0s;
+}
+
+.custom-tabs__block.active_tab {
+	display: block;
+	opacity: 1;
+}
+
+
+.custom-tabs__image {
+	position: relative;
+
+	display: block;
+	width: 100%;
+}
+
+.custom-tabs__image img {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.custom-tabs__image--cover img {object-fit: cover;}
+.custom-tabs__image--contain img {object-fit: contain;}
+
+.custom-tabs__text{}
+
+.custom-tabs__image_text {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	padding: 4%;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.custom-tabs__image_text span{
+	display: block;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	color: #fff;
+	background-color: #000;
+}
+
+@media screen and (max-width: 749px) {
+	.custom-tabs__image_text span{
+		padding: 0 10px;
+	}
+}
+@media screen and (min-width: 750px) {
+	.custom-tabs__image_text span{
+		padding: 0 2em;
+	}
+}

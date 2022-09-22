@@ -1,0 +1,252 @@
+{{ 'custom-tabs' | append: '.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-tabs' | append: '.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+@media screen and (max-width: 749px) {
+	.custom-tabs {
+		padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+		padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.75);
+	}
+}
+
+@media screen and (min-width: 750px) {
+	.custom-tabs {
+		padding-top: calc({{ section.settings.padding_top }}px);
+		padding-bottom: calc({{ section.settings.padding_bottom }}px);
+	}
+}
+
+	.custom-tabs__title {
+		{% if section.settings.hide_title == true %}
+			display: none;
+		{% elsif section.settings.content_align == "right" %}
+			text-align: right;
+		{% elsif section.settings.content_align == "middle" %}
+			text-align: center;
+		{% endif %}
+	}
+
+	.custom-tabs__descr {
+		{% if section.settings.hide_descr == true %}
+			display: none;
+		{% elsif section.settings.content_align == "right" %}
+			text-align: right;
+		{% elsif section.settings.content_align == "middle" %}
+			text-align: center;
+		{% endif %}
+	}
+
+	.custom-tabs__list {
+		{% if section.settings.content_align == 'middle' %}
+			justify-content: center;
+		{% elsif section.settings.content_align == 'right' %}
+			justify-content: flex-end;
+		{% endif %}
+	}
+
+	.custom-tabs__block{
+		{% if section.settings.content_align == 'middle' %}
+			text-align: center;
+		{% elsif section.settings.content_align == 'right' %}
+			text-align: right;
+		{% endif %}
+	}
+
+	.custom-tabs__image {
+		padding-bottom: {{ section.settings.img_height }}%;
+	}
+{%- endstyle -%}
+
+<section class="custom-tabs">
+	<div class="custom-tabs__container">
+		<h2 class="custom-tabs__title">{{ section.settings.title }}</h2>
+		<div class="custom-tabs__descr">{{ section.settings.descr }}</div>
+		<div class="custom-tabs__body">
+				<nav class="custom-tabs__head">
+					<ul class="custom-tabs__list">
+						{% for block in section.blocks %}
+							<li class="custom-tabs__item">
+								<button class="custom-tabs__btn {% if forloop.index == 1 %}active_tab{% endif %}" data-tab="{{ forloop.index }}" type="button">
+									{{ block.settings.tab_title }}
+								</button>
+							</li>
+						{% endfor %}
+					</ul>
+				</nav>
+				<div class="custom-tabs__blocks">
+					{% for block in section.blocks %}
+						<div data-tab="{{ forloop.index }}" class="custom-tabs__block {% if forloop.index == 1 %}active_tab{% endif %}">
+							{% if block.settings.tab_image and block.settings.hide_img == false %}
+								<div 
+									class="custom-tabs__image custom-tabs__image--{{ block.settings.img_fit }}"
+								>
+									<img 
+										width=""
+										height=""
+										loading="lazy" 
+										src="{{ block.settings.tab_image | image_url }}" 
+										alt="{{ block.settings.tab_image.alt | escape }}"
+									>
+									{% if block.settings.show_img_text %}
+										<div class="custom-tabs__image_text">
+											 <span>{{ block.settings.img_content }}</span>
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+							<div class="custom-tabs__text">{{ block.settings.tab_content }}</div>
+						</div>
+					{% endfor %}
+				</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name":"Custom tabs",
+	"tag": "section",
+  "class": "section",
+	"settings":[
+		{
+			"type":"select",
+			"label":"Content alignment",
+			"id":"content_align",
+			"options":[
+				{
+					"value":"right",
+					"label":"Right"
+				},
+				{
+					"value":"middle",
+					"label":"Middle"
+				},
+				{
+					"value":"left",
+					"label":"Left"
+				}
+			],
+		"default":"middle"
+		},
+		{
+			"type":"text",
+			"label":"Title",
+			"id":"title",
+			"default":"Custom tabs"
+		},
+		{
+				"type":"checkbox",
+				"label":"Hide title",
+				"id":"hide_title",
+				"default":false
+		},
+		{
+				"type":"text",
+				"label":"Description",
+				"id":"descr",
+				"default": "Custom tabs is best practice for your awesome shop lorem ipsum dolor sit amet!"
+		},
+		{
+				"type":"checkbox",
+				"label":"Hide description",
+				"id":"hide_descr",
+				"default":false
+		},
+		{
+				"type":"range",
+				"id":"padding_top",
+				"min":0,
+				"max":100,
+				"step":4,
+				"unit":"px",
+				"label":"Padding top",
+				"default":40
+		},
+		{
+				"type":"range",
+				"id":"padding_bottom",
+				"min":0,
+				"max":100,
+				"step":4,
+				"unit":"px",
+				"label":"Padding bottom",
+				"default":40
+		},
+		{
+			"type":"range",
+			"id":"img_height",
+			"min":40,
+			"max":140,
+			"step":5,
+			"unit":"%",
+			"label":"Images height",
+			"default":40
+		}
+	],
+	"blocks" : [
+		{
+			"type": "text",
+			"name": "New tab",
+			"settings" : [
+				{
+					"type": "text",
+					"label": "Your title",
+					"id": "tab_title",
+					"default": "Tab Title"
+				},
+				{
+					"type": "richtext",
+					"label": "Tab content",
+					"id": "tab_content",
+					"default": "<p>Tab description Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, excepturi.</p>"
+				},
+				{
+					"type": "image_picker",
+					"id": "tab_image",
+					"label": "Tab image"
+				},
+				{
+					"type":"select",
+					"label":"Image fit",
+					"id":"img_fit",
+					"options":[
+						{
+							"value":"contain",
+							"label":"Contain"
+						},
+						{
+							"value":"cover",
+							"label":"Cover"
+						}
+					],
+					"default": "cover"
+				},
+				{
+					"type":"checkbox",
+					"label":"Hide image",
+					"id":"hide_img",
+					"default":false
+				},
+				{
+					"type":"checkbox",
+					"label":"Text on image",
+					"id":"show_img_text",
+					"default":false
+				},
+				{
+					"type": "richtext",
+					"label": "Text on image",
+					"id": "img_content",
+					"default": "<p>Text on your image.</p>"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"category" : "products",
+			"name": "Custom tabs"
+		}
+	]
+}
+{% endschema %}
