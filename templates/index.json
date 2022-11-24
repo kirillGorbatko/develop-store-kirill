@@ -14,15 +14,15 @@
         "enable_slider_desk": true,
         "products_desk": 3,
         "enable_slider_mob": true,
-        "products_mob": 2,
+        "products_mob": 3,
         "enable_slider_fractions_desk": true,
         "enable_slider_fractions_mob": true,
         "enable_slider_dotts_desk": true,
         "enable_slider_dotts_mob": true,
-        "enable_slider_arrows_desk": false,
-        "enable_slider_arrows_mob": false,
-        "enable_slider_scrollbar_desk": false,
-        "enable_slider_scrollbar_mob": false
+        "enable_slider_arrows_desk": true,
+        "enable_slider_arrows_mob": true,
+        "enable_slider_scrollbar_desk": true,
+        "enable_slider_scrollbar_mob": true
       }
     },
     "image_banner": {
