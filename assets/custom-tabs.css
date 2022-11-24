@@ -5,6 +5,13 @@
 
 .custom-tabs a {
 	color: green;
+
+	transition: color 0.3s ease 0s;
+	will-change: color;
+}
+
+.custom-tabs a:hover {
+	color: yellow;
 }
 
 .custom-tabs__container {
@@ -18,7 +25,7 @@
 }
 
 .custom-tabs__descr:not(:last-child) {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 
 .custom-tabs__body {
@@ -27,10 +34,11 @@
 
 .custom-tabs__head {
 	overflow: hidden;
+	padding: 15px 0;
 }
 
 .custom-tabs__head:not(:last-child) {
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 .custom-tabs__list {
@@ -47,14 +55,22 @@
 	padding: 0 2rem 2rem 0;
 }
 
+.custom-tabs__btn {
+	border: none;
+	cursor: pointer;
+}
+
 @media screen and (min-width: 390px) {
 	.custom-tabs__btn {
-		background-color: #fff;
 		height: 4.9rem;
 		padding: 0 2rem;
-		cursor: pointer;
+
+		background-color: #fff;
+		border-radius: 0.4rem;
+		box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 6px;
 
 		transition: background-color 0.3s ease, color 0.3s ease;
+		will-change: background-color, color;
 	}
 
 	.custom-tabs__btn:hover,
@@ -67,9 +83,8 @@
 @media screen and (max-width: 389px) {
 	.custom-tabs__btn {
 		position: relative;
+		color: #000;
 		
-		cursor: pointer;
-		border: none;
 		background-color: transparent;
 	}
 
@@ -86,6 +101,7 @@
 
 		transform: scale(0);
 		transition: transform 0.3s ease 0s;
+		will-change: transform;
 	}
 
 	.custom-tabs__btn.active_tab::before {
@@ -94,26 +110,43 @@
 }
 
 .custom-tabs__blocks {
+	position: relative;
 
+	overflow: hidden;
 }
 
 .custom-tabs__block  {
-	display: none;
+	position: absolute;
 	opacity: 0;
-	transition: opacity 0.3s ease 0s;
+	pointer-events: none;
+
+	transform: translateY(-100%);
+
+	transition: transform 0.3s ease 0s;
+	will-change: transform;
 }
 
 .custom-tabs__block.active_tab {
-	display: block;
+	position: relative;
 	opacity: 1;
+	pointer-events: initial;
+	
+	transform: translateY(0);
 }
 
+.custom-tabs__wrap {
+	position: relative;
+
+	border-radius: 0.4rem;
+	overflow: hidden;
+}
 
 .custom-tabs__image {
 	position: relative;
 
 	display: block;
 	width: 100%;
+	overflow: hidden;
 }
 
 .custom-tabs__image img {
@@ -129,21 +162,8 @@
 .custom-tabs__image--cover img {object-fit: cover;}
 .custom-tabs__image--contain img {object-fit: contain;}
 
-.custom-tabs__text{}
-
 .custom-tabs__image_text {
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	padding: 4%;
-	width: 100%;
-	height: 100%;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	
 }
 
 .custom-tabs__image_text span{
@@ -157,12 +177,39 @@
 }
 
 @media screen and (max-width: 749px) {
+	.custom-tabs__image {
+		border-radius: 0.4rem 0.4rem 0 0;
+	}
+
 	.custom-tabs__image_text span{
 		padding: 0 10px;
+		border-radius: 0 0 0.4rem 0.4rem;
 	}
 }
 @media screen and (min-width: 750px) {
+	.custom-tabs__image {
+		border-radius: 0.4rem;
+	}
+
+	.custom-tabs__image_text {
+		position: absolute;
+		top: 0;
+		left: 0;
+	
+		padding: 4%;
+		width: 100%;
+		height: 100%;
+	
+		background-color: rgba(0, 0, 0, 0.3);
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	
 	.custom-tabs__image_text span{
 		padding: 0 2em;
+		border-radius: 0.4rem;
 	}
 }
